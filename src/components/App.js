@@ -1,17 +1,31 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import LoadingBar from 'react-redux-loading'
+
 import '../utils/App.css';
+
+import NavBar from './NavBar'
+import Dashboard from './Dashboard'
+import PoolPage from './PoolPage'
+import NewPool from './NewPool'
+
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <Router>
+        <Fragment>
+          {/* <LoadingBar /> */}
+          <div>
+            <NavBar />
+            <div>
+              <Route path='/' exact component={Dashboard} />
+              <Route path='/question/:id' component={PoolPage} />
+              <Route path='/add' component={NewPool} />
+            </div>
+          </div>
+        </Fragment>
+      </Router>
     );
   }
 }
