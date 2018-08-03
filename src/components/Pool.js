@@ -1,7 +1,11 @@
-export default Pool() {
+import React from 'react'
+
+const Pool = (props) => {
   return(
     <div>
-      Pool
+      {props.name}
     </div>
   )
 }
+
+export default Pool
