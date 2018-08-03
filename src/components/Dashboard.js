@@ -2,6 +2,25 @@ import React, { Component } from 'react'
 
 import PoolList from './PoolList'
 
+// Fake data
+const poolsOne = [
+  {
+    id:1,
+    name: 'Pool 1'
+  },
+  {
+    id:2,
+    name: 'Pool 2'
+  }
+]
+
+const poolsTwo = [
+  {
+    id:3,
+    name: 'Pool 3'
+  }
+]
+
 class Dashboard extends Component {
   state = {
     answeredActive: false
@@ -33,8 +52,8 @@ class Dashboard extends Component {
           </ul>
         </nav>
         {this.state.answeredActive === true
-        ? <PoolList />
-        : <PoolList />}
+        ? <PoolList pools={poolsOne}/>
+        : <PoolList pools={poolsTwo}/>}
       </div>
     )
   }
