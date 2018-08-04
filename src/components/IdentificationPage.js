@@ -8,9 +8,17 @@ class IdentificationPage extends Component {
   }
 
   render() {
+    const { users } = this.props
+
     return (
       <div>
-        Identification page
+        <ul>
+          {Object.keys(users).map((u) => (
+              <li key={users[u].id}>
+                {users[u].name}
+              </li>
+          ))}
+        </ul>
       </div>
     )
   }
