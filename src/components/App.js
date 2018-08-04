@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { connect } from 'react-redux'
 import LoadingBar from 'react-redux-loading'
 
 import '../utils/App.css';
@@ -15,7 +16,7 @@ class App extends Component {
     return (
       <Router>
         <Fragment>
-          {/* <LoadingBar /> */}
+          <LoadingBar />
           <div>
             <NavBar />
             <div>
@@ -30,4 +31,10 @@ class App extends Component {
   }
 }
 
-export default App;
+function mapStateToProps({ authedUser }) {
+  return {
+    loading : authedUser === null
+  }
+}
+
+export default connect(mapStateToProps)(App)
