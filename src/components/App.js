@@ -6,6 +6,7 @@ import LoadingBar from 'react-redux-loading'
 import '../utils/App.css';
 
 import NavBar from './NavBar'
+import IdentificationPage from './IdentificationPage'
 import Dashboard from './Dashboard'
 import PoolPage from './PoolPage'
 import NewPool from './NewPool'
@@ -17,14 +18,16 @@ class App extends Component {
       <Router>
         <Fragment>
           <LoadingBar />
-          <div>
+          {this.props.authed === true
+          ? <div>
             <NavBar />
             <div>
               <Route path='/' exact component={Dashboard} />
               <Route path='/question/:id' component={PoolPage} />
               <Route path='/add' component={NewPool} />
             </div>
-          </div>
+            </div>
+          : <IdentificationPage />}
         </Fragment>
       </Router>
     );
@@ -33,7 +36,7 @@ class App extends Component {
 
 function mapStateToProps({ authedUser }) {
   return {
-    loading : authedUser === null
+    authed : authedUser !== null
   }
 }
 
