@@ -1,13 +1,25 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { handleGetUsers } from '../actions/users'
 
 class IdentificationPage extends Component {
+  componentDidMount() {
+    this.props.dispatch(handleGetUsers())
+  }
+
   render() {
-    return {
+    return (
       <div>
         Identification page
       </div>
-    }
+    )
   }
 }
 
-export default IdentificationPage
+function mapStateToProps({ users }) {
+  return {
+    users
+  }
+}
+
+export default connect(mapStateToProps)(IdentificationPage)
