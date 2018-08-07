@@ -8,6 +8,7 @@ import '../utils/App.css';
 import NavBar from './NavBar'
 import IdentificationPage from './IdentificationPage'
 import Dashboard from './Dashboard'
+import Leaderboard from './Leaderboard'
 import PoolPage from './PoolPage'
 import NewPool from './NewPool'
 import { handleSetAuthedUser } from '../actions/authedUser'
@@ -33,7 +34,7 @@ class App extends Component {
                 <Route path='/' exact component={Dashboard} />
                 <Route path='/question/:id' component={PoolPage} />
                 <Route path='/add' component={NewPool} />
-                {/* <Route path='/leaderboard' component={LeaderBoard} /> */}
+                <Route path='/leaderboard' component={Leaderboard} />
               </div>
             </div>
           : <IdentificationPage />}
