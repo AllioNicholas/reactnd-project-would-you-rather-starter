@@ -25,18 +25,27 @@ export function handleGetPools() {
   }
 }
 
-// function addPool(pool) {
-//   return {
-//     type: ADD_POOL,
-//     pool
-//   }
-// }
-//
-// export function handleAddPool(pool) {
-//   return (dispatch, getState) => {
-//     const { authedUser } = getState()
-//
-//     dispatch(showLoading)
-//
-//   }
-// }
+function addPool(pool) {
+  return {
+    type: ADD_POOL,
+    pool
+  }
+}
+
+export function handleAddPool(pool) {
+  return (dispatch, getState) => {
+    const { authedUser } = getState()
+
+    dispatch(showLoading())
+
+    const newPool = {
+      ...pool,
+      author: authedUser
+    }
+
+    return API._saveQuestion(newPool)
+      .then((pool) => dispatch(addPool(pool)))
+      .then(() => dispatch(hideLoading()))
+      .catch(() => alert('There was an error saving your pool. Try again.'))
+  }
+}
