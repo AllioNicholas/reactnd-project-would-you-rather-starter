@@ -4,25 +4,6 @@ import { connect } from 'react-redux'
 import PoolList from './PoolList'
 import { handleGetPools } from '../actions/pools'
 
-// Fake data
-const poolsOne = [
-  {
-    id:1,
-    name: 'Pool 1'
-  },
-  {
-    id:2,
-    name: 'Pool 2'
-  }
-]
-
-const poolsTwo = [
-  {
-    id:3,
-    name: 'Pool 3'
-  }
-]
-
 class Dashboard extends Component {
   state = {
     answeredActive: false
@@ -45,6 +26,10 @@ class Dashboard extends Component {
   }
 
   render() {
+    const { pools, authedUser } = this.props
+    const answeredPools = Object.keys(pools).filter((k) => pools[k]['optionOne']['votes'].includes(authedUser) || pools[k]['optionTwo']['votes'].includes(authedUser))
+    const ununsweredPools = Object.keys(pools).filter((k) => !answeredPools.includes(k))
+
     return (
       <div>
         <nav>
@@ -58,11 +43,18 @@ class Dashboard extends Component {
           </ul>
         </nav>
         {this.state.answeredActive === true
-        ? <PoolList pools={poolsOne}/>
-        : <PoolList pools={poolsTwo}/>}
+        ? <PoolList ids={answeredPools}/>
+        : <PoolList ids={ununsweredPools}/>}
       </div>
     )
   }
 }
 
-export default connect()(Dashboard)
+function mapStateToProps({ pools, authedUser }) {
+  return {
+    pools,
+    authedUser
+  }
+}
+
+export default connect(mapStateToProps)(Dashboard)
