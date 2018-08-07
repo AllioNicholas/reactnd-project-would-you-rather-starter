@@ -18,15 +18,16 @@ class App extends Component {
   }
 
   render() {
-    const { authed } = this.props
+    const { authedUser } = this.props
 
     return (
       <Router>
         <Fragment>
           <LoadingBar />
-          {authed === true
+          {authedUser !== null
           ? <div>
               <NavBar />
+              <p>{authedUser}</p>
               <button onClick={this.handleLogout}>Logout</button>
               <div>
                 <Route path='/' exact component={Dashboard} />
@@ -44,7 +45,7 @@ class App extends Component {
 
 function mapStateToProps({ authedUser }) {
   return {
-    authed : authedUser !== null
+    authedUser
   }
 }
 
