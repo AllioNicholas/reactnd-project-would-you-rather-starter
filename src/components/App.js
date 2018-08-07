@@ -32,7 +32,7 @@ class App extends Component {
               <button onClick={this.handleLogout}>Logout</button>
               <div>
                 <Route path='/' exact component={Dashboard} />
-                <Route path='/question/:id' component={PoolPage} />
+                <Route path='/questions/:id' component={PoolPage} />
                 <Route path='/add' component={NewPool} />
                 <Route path='/leaderboard' component={Leaderboard} />
               </div>
