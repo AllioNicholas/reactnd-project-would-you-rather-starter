@@ -15,6 +15,11 @@ export default function NavBar () {
             New Pool
           </NavLink>
         </li>
+        <li>
+          <NavLink to='/leaderboard'>
+            Leaderboard
+          </NavLink>
+        </li>
       </ul>
     </nav>
   )
