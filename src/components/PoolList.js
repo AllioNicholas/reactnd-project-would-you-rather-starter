@@ -12,7 +12,7 @@ class PoolList extends Component {
         <ul>
           {ids.map((i) => (
               <li key={pools[i]['id']}>
-                <Pool name={pools[i]['author']} />
+                <Pool id={pools[i]['id']} />
               </li>
             )
           )}
