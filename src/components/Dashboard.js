@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
 import PoolList from './PoolList'
+import { handleGetPools } from '../actions/pools'
 
 // Fake data
 const poolsOne = [
@@ -24,6 +26,10 @@ const poolsTwo = [
 class Dashboard extends Component {
   state = {
     answeredActive: false
+  }
+
+  componentDidMount() {
+    this.props.dispatch(handleGetPools())
   }
 
   changeListToUnanswered = () => {
@@ -59,4 +65,4 @@ class Dashboard extends Component {
   }
 }
 
-export default Dashboard
+export default connect()(Dashboard)
