@@ -4,15 +4,15 @@ import Pool from './Pool'
 
 class PoolList extends Component {
   render() {
-    const { pools, ids } = this.props
+    const { ids } = this.props
 
     return(
       <div>
         PoolList
         <ul>
           {ids.map((i) => (
-              <li key={pools[i]['id']}>
-                <Pool id={pools[i]['id']} />
+              <li key={i}>
+                <Pool id={i} />
               </li>
             )
           )}
@@ -25,7 +25,7 @@ class PoolList extends Component {
 function mapStateToProps({ pools }, { ids }) {
   return {
     pools,
-    ids
+    ids : ids.sort((a,b) => pools[b].timestamp - pools[a].timestamp),
   }
 }
 
