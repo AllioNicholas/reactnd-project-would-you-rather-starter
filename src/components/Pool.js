@@ -5,6 +5,11 @@ import { connect } from 'react-redux'
 class Pool extends Component {
   render() {
     const { pool } = this.props
+
+    if (pool === null) {
+      return <p>This pool does not exists</p>
+    }
+
     const { id, author, timestamp, optionOne, optionTwo } = pool
 
     return(
@@ -21,7 +26,7 @@ function mapStateToProps({ pools }, { id }) {
   const pool = pools[id]
 
   return {
-    pool
+    pool: pool ? pool : null
   }
 }
 
