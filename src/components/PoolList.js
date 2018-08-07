@@ -1,23 +1,32 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import Pool from './Pool'
 
 class PoolList extends Component {
   render() {
-    const { pools } = this.props
+    const { pools, ids } = this.props
 
     return(
       <div>
         PoolList
         <ul>
-          {pools.map((p) => (
-            <li key={p.id}>
-              <Pool name={p.name} />
-            </li>
-          ))}
+          {ids.map((i) => (
+              <li key={pools[i]['id']}>
+                <Pool name={pools[i]['author']} />
+              </li>
+            )
+          )}
         </ul>
       </div>
     )
   }
 }
 
-export default PoolList
+function mapStateToProps({ pools }, { ids }) {
+  return {
+    pools,
+    ids
+  }
+}
+
+export default connect(mapStateToProps)(PoolList)
