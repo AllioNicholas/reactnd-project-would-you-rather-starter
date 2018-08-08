@@ -6,6 +6,13 @@ body {
 
 a {
   text-decoration: none;
+  color: black;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 10px;
 }
 
 .avatar {
@@ -33,6 +40,10 @@ a {
   padding-left: 0;
 }
 
+li {
+  cursor: pointer;
+}
+
 ul {
   padding-left: 0;
 }
@@ -52,14 +63,21 @@ li {
   border: 1px solid #dad7d7;
   border-radius: 3px;
   cursor: pointer;
+  text-decoration: none;
+  overflow: auto;
+  align-content: center;
+  position: relative;
+}
+
+.pool-title {
+  position: relative;
 }
 
 .btn {
-  margin: 35px auto;
   padding: 10px;
   cursor: pointer;
   font-size: 16px;
-  width: 250px;
+  width: 200px;
   position: relative;
 }
 
@@ -73,6 +91,33 @@ li {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+}
+
+.author-container {
+  margin: auto;
+  float: left;
+  width: 33%;
+}
+
+.options-container {
+  margin: auto;
+  float: right;
+  width: 66%
+}
+
+.option {
+  position: relative;
+  display: block;
+  flex-direction: column;
+}
+
+.option-choosen {
+  color: green;
+}
+
+.option-resp {
+  display: inline;
+  float: right;
 }
 
 .center {
