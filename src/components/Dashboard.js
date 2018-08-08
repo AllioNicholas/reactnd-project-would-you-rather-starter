@@ -31,13 +31,13 @@ class Dashboard extends Component {
     const ununsweredPools = Object.keys(pools).filter((k) => !answeredPools.includes(k))
 
     return (
-      <div>
-        <nav>
+      <div className='center'>
+        <nav className='nav'>
           <ul>
-            <li onClick={this.changeListToUnanswered}>
+            <li onClick={this.changeListToUnanswered} activeClassName='active'>
               Ununswered questions
             </li>
-            <li onClick={this.changeListToAswered}>
+            <li onClick={this.changeListToAswered} activeClassName='active'>
               Answered questions
             </li>
           </ul>
