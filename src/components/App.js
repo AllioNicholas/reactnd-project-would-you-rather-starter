@@ -11,6 +11,7 @@ import Dashboard from './Dashboard'
 import Leaderboard from './Leaderboard'
 import PoolPage from './PoolPage'
 import NewPool from './NewPool'
+import NotFound from './NotFound'
 import { handleSetAuthedUser } from '../actions/authedUser'
 
 class App extends Component {
@@ -35,6 +36,7 @@ class App extends Component {
                 <Route path='/questions/:id' component={PoolPage} />
                 <Route path='/add' component={NewPool} />
                 <Route path='/leaderboard' component={Leaderboard} />
+                <Route path='/notfound' component={NotFound} />
               </div>
             </div>
           : <IdentificationPage />}
