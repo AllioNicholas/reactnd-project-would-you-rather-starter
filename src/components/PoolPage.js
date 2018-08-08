@@ -18,11 +18,12 @@ class PoolPage extends Component {
 
   render() {
     const { id, thisPool, authedUser } = this.props
-    const poolAnswered = thisPool.optionOne.votes.includes(authedUser) || thisPool.optionTwo.votes.includes(authedUser)
 
     if (thisPool === null) {
       return <Redirect to='/notfound' />
     }
+
+    const poolAnswered = thisPool.optionOne.votes.includes(authedUser) || thisPool.optionTwo.votes.includes(authedUser)
 
     return (
       <div>
