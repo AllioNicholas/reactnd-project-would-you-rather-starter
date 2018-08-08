@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
+import { Redirect } from 'react-router-dom'
 
 class Pool extends Component {
   render() {
     const { pool } = this.props
 
     if (pool === null) {
-      return <p>This pool does not exists</p>
+      return <Redirect to='/notfound' />
     }
 
     const { id, author, timestamp, optionOne, optionTwo } = pool
