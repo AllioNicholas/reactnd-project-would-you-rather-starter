@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { handleGetUsers } from '../actions/users'
-import { handleSetAuthedUser } from '../actions/authedUser'
+import { performInitialTasks } from '../actions/shared'
 
 class IdentificationPage extends Component {
   componentDidMount() {
@@ -9,7 +9,7 @@ class IdentificationPage extends Component {
   }
 
   setAuthedUser = (id) => {
-    this.props.dispatch(handleSetAuthedUser(id))
+    this.props.dispatch(performInitialTasks(id))
   }
 
   render() {
