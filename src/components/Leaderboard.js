@@ -1,7 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { handleGetUsers } from '../actions/users'
 
 class Leaderboard extends Component {
+  componentDidMount() {
+    this.props.dispatch(handleGetUsers())
+  }
+  
   render() {
     const { users, userIds } = this.props
 
@@ -17,8 +22,12 @@ class Leaderboard extends Component {
 
             return (
               <li key={id}>
+                <img
+                  src={user.avatarURL}
+                  alt={`Avatar of ${user.name}`}
+                />
                 <h3>{user.name}</h3>
-                <p>Score: {score} (Q:{questions} + A:{answers})</p>
+                <p>Score: {score}</p>
               </li>
             )
           })}
@@ -37,7 +46,7 @@ function mapStateToProps({ users }) {
 
       const answersA = Object.keys(userA.answers).length
       const answersB = Object.keys(userB.answers).length
-      
+
       const questionsA = userA.questions.length
       const questionsB = userB.questions.length
 
