@@ -7,8 +7,7 @@ class PoolList extends Component {
     const { ids } = this.props
 
     return(
-      <div>
-        PoolList
+      <div className='center'>
         <ul>
           {ids.map((i) => (
               <li key={i}>
