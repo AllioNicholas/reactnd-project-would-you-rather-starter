@@ -51,7 +51,7 @@ class NewPool extends Component {
 
     return(
       <div>
-        <h3>New Pool</h3>
+        <h3>Would You Rather</h3>
         <form onSubmit={this.handleSubmit}>
           <textarea
             placeholder='Insert option one'
