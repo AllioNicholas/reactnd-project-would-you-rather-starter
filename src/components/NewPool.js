@@ -51,17 +51,22 @@ class NewPool extends Component {
 
     return(
       <div>
-        <h3>Would You Rather</h3>
-        <form onSubmit={this.handleSubmit}>
+        <h3 className='center' >Would You Rather</h3>
+        <form
+          className='new-pool'
+          onSubmit={this.handleSubmit}>
           <textarea
             placeholder='Insert option one'
             value={optionOneText}
-            onChange={this.handleOptionOneChange} />
+            onChange={this.handleOptionOneChange}
+            className='textarea' />
           <textarea
             placeholder='Insert option two'
             value={optionTwoText}
-            onChange={this.handleOptionTwoChange} />
+            onChange={this.handleOptionTwoChange}
+            className='textarea' />
           <button
+            className='btn'
             type='submit'
             disabled={optionOneText === '' && optionTwoText === ''} >
             Add pool
