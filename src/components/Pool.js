@@ -14,14 +14,15 @@ class Pool extends Component {
     const { id, optionOne, optionTwo } = pool
     const { name, avatarURL } = authorUser
 
-    const poolAnswered = optionOne.votes.includes(authedUser) || optionTwo.votes.includes(authedUser)
+    const optionOneChoosen = optionOne.votes.includes(authedUser)
+    const optionTwoChoosen = optionTwo.votes.includes(authedUser)
+    const poolAnswered = optionOneChoosen || optionTwoChoosen
     const optionOneVotes = optionOne.votes.length
     const optionTwoVotes = optionTwo.votes.length
     const totalVotes = optionOneVotes + optionTwoVotes
 
     return(
       <Link to={`/questions/${id}`} className='pool'>
-        <h3 className='center'>Would You Rather</h3>
         <div className='author-container'>
           <img
             src={avatarURL}
@@ -31,20 +32,23 @@ class Pool extends Component {
           <h5>{name}</h5>
         </div>
         <div className='options-container'>
-          <div className='option'>
-            <p>{optionOne.text}</p>
-            {poolAnswered && <div>
-              <p>Votes: {optionOneVotes}</p>
-              <p className='percentage'>{(optionOneVotes / totalVotes * 100).toFixed(2)} %</p>
-            </div>}
-          </div>
-          <div className='option'>
-            <p>{optionTwo.text}</p>
-            {poolAnswered && <div>
-              <p>Votes: {optionTwoVotes}</p>
-              <p className='percentage'>{(optionTwoVotes / totalVotes * 100).toFixed(2)} %</p>
-            </div>}
-          </div>
+          <h3 className='pool-title'>Would You Rather</h3>
+          <ul>
+            <li key='optionOne' className={optionOneChoosen ? 'option-choosen' : 'option'}>
+              <div>{optionOne.text}</div>
+              {poolAnswered && <div className='option-resp'>
+                <p>Votes: {optionOneVotes}</p>
+                <p className='percentage'>{(optionOneVotes / totalVotes * 100).toFixed(2)} %</p>
+              </div>}
+            </li>
+            <li key='optionTwo' className={optionTwoChoosen ? 'option-choosen' : 'option'}>
+              <div>{optionTwo.text}</div>
+              {poolAnswered && <div className='option-resp'>
+                <p>Votes: {optionTwoVotes}</p>
+                <p className='percentage'>{(optionTwoVotes / totalVotes * 100).toFixed(2)} %</p>
+              </div>}
+            </li>
+          </ul>
         </div>
       </Link>
     )
