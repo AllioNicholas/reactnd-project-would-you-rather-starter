@@ -16,7 +16,7 @@ class IdentificationPage extends Component {
     const { users } = this.props
 
     return (
-      <div>
+      <div className='container'>
         <ul>
           {Object.keys(users).map((u) => (
               <li key={users[u].id} onClick={() => this.setAuthedUser(users[u].id)}>
