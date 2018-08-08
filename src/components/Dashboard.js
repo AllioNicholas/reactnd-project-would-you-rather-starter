@@ -34,10 +34,10 @@ class Dashboard extends Component {
       <div className='center'>
         <nav className='nav'>
           <ul>
-            <li onClick={this.changeListToUnanswered} activeClassName='active'>
+            <li onClick={this.changeListToUnanswered} className={this.state.answeredActive === false ? 'active' : null}>
               Ununswered questions
             </li>
-            <li onClick={this.changeListToAswered} activeClassName='active'>
+            <li onClick={this.changeListToAswered} className={this.state.answeredActive === true ? 'active' : null}>
               Answered questions
             </li>
           </ul>
