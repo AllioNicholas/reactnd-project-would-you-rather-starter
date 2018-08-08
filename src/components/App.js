@@ -27,10 +27,10 @@ class App extends Component {
         <Fragment>
           <LoadingBar />
           {authedUser !== null
-          ? <div>
+          ? <div className='center'>
               <NavBar />
               <p>{authedUser}</p>
-              <button onClick={this.handleLogout}>Logout</button>
+              <button className='btn' onClick={this.handleLogout}>Logout</button>
               <div>
                 <Route path='/' exact component={Dashboard} />
                 <Route path='/questions/:id' component={PoolPage} />
