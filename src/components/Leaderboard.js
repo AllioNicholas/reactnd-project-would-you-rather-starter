@@ -6,7 +6,7 @@ class Leaderboard extends Component {
   componentDidMount() {
     this.props.dispatch(handleGetUsers())
   }
-  
+
   render() {
     const { users, userIds } = this.props
 
@@ -25,6 +25,7 @@ class Leaderboard extends Component {
                 <img
                   src={user.avatarURL}
                   alt={`Avatar of ${user.name}`}
+                  className='avatar'
                 />
                 <h3>{user.name}</h3>
                 <p>Score: {score}</p>
