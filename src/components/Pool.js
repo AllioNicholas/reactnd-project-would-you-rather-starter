@@ -15,6 +15,9 @@ class Pool extends Component {
     const { name, avatarURL } = authorUser
 
     const poolAnswered = optionOne.votes.includes(authedUser) || optionTwo.votes.includes(authedUser)
+    const optionOneVotes = optionOne.votes.length
+    const optionTwoVotes = optionTwo.votes.length
+    const totalVotes = optionOneVotes + optionTwoVotes
 
     return(
       <Link to={`/questions/${id}`} className='pool'>
@@ -28,8 +31,20 @@ class Pool extends Component {
           <h5>{name}</h5>
         </div>
         <div className='options-container'>
-          <p>{optionOne.text}</p>
-          <p>{optionTwo.text}</p>
+          <div className='option'>
+            <p>{optionOne.text}</p>
+            {poolAnswered && <div>
+              <p>Votes: {optionOneVotes}</p>
+              <p className='percentage'>{(optionOneVotes / totalVotes * 100).toFixed(2)} %</p>
+            </div>}
+          </div>
+          <div className='option'>
+            <p>{optionTwo.text}</p>
+            {poolAnswered && <div>
+              <p>Votes: {optionTwoVotes}</p>
+              <p className='percentage'>{(optionTwoVotes / totalVotes * 100).toFixed(2)} %</p>
+            </div>}
+          </div>
         </div>
       </Link>
     )
