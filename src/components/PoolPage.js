@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Redirect } from 'react-router-dom'
 
 import Pool from './Pool'
+import NotFound from './NotFound'
 import { handleAddAnswer } from '../actions/pools'
 
 class PoolPage extends Component {
@@ -20,7 +20,7 @@ class PoolPage extends Component {
     const { id, thisPool, authedUser } = this.props
 
     if (thisPool === null) {
-      return <Redirect to='/notfound' />
+      return <NotFound />
     }
 
     const poolAnswered = thisPool.optionOne.votes.includes(authedUser) || thisPool.optionTwo.votes.includes(authedUser)
