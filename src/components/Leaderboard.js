@@ -11,9 +11,9 @@ class Leaderboard extends Component {
     const { users, userIds } = this.props
 
     return (
-      <div>
-        Leaderboard
-        <ol>
+      <div className='center'>
+        <h2>Leaderboard</h2>
+        <ol className='ldb-user-list'>
           {userIds.map((id) => {
             const user = users[id]
             const answers = Object.keys(user.answers).length
@@ -22,13 +22,15 @@ class Leaderboard extends Component {
 
             return (
               <li key={id}>
-                <img
-                  src={user.avatarURL}
-                  alt={`Avatar of ${user.name}`}
-                  className='avatar'
-                />
-                <h3>{user.name}</h3>
-                <p>Score: {score}</p>
+                <div className='ldb-user-container'>
+                  <img
+                    src={user.avatarURL}
+                    alt={`Avatar of ${user.name}`}
+                    className='avatar'
+                  />
+                  <h3>{user.name}</h3>
+                  <p>Score: {score}</p>
+                </div>
               </li>
             )
           })}
