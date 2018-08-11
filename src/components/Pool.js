@@ -33,20 +33,16 @@ class Pool extends Component {
         </div>
         <div className='options-container'>
           <h3 className='pool-title'>Would You Rather</h3>
-          <ul>
+          <ul className='options-list'>
             <li key='optionOne' className={optionOneChoosen ? 'option-choosen' : 'option'}>
-              <div>{optionOne.text}</div>
-              {poolAnswered && <div className='option-resp'>
-                <p>Votes: {optionOneVotes}</p>
-                <p className='percentage'>{(optionOneVotes / totalVotes * 100).toFixed(2)} %</p>
-              </div>}
+                <p>{optionOne.text}</p>
+                <span>{poolAnswered &&
+                  <p>Votes: {optionOneVotes} • <span className='percentage'>{(optionOneVotes / totalVotes * 100).toFixed(2)} %</span></p>}</span>
             </li>
             <li key='optionTwo' className={optionTwoChoosen ? 'option-choosen' : 'option'}>
-              <div>{optionTwo.text}</div>
-              {poolAnswered && <div className='option-resp'>
-                <p>Votes: {optionTwoVotes}</p>
-                <p className='percentage'>{(optionTwoVotes / totalVotes * 100).toFixed(2)} %</p>
-              </div>}
+              <p>{optionTwo.text}</p>
+              {poolAnswered &&
+                <p>Votes: {optionTwoVotes} • <span className='percentage'>{(optionTwoVotes / totalVotes * 100).toFixed(2)} %</span></p>}
             </li>
           </ul>
         </div>
