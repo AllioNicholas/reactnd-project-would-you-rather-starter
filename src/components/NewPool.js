@@ -50,7 +50,7 @@ class NewPool extends Component {
     }
 
     return(
-      <div>
+      <div className='center'>
         <h3 className='center' >Would You Rather</h3>
         <form
           className='new-pool'
