@@ -6,17 +6,17 @@ export default function NavBar () {
     <nav className='nav'>
       <ul>
         <li>
-          <NavLink to='/' exact>
+          <NavLink to='/' exact activeClassName='active'>
             Home
           </NavLink>
         </li>
         <li>
-          <NavLink to='/add'>
+          <NavLink to='/add' activeClassName='active'>
             New Pool
           </NavLink>
         </li>
         <li>
-          <NavLink to='/leaderboard'>
+          <NavLink to='/leaderboard' activeClassName='active'>
             Leaderboard
           </NavLink>
         </li>
