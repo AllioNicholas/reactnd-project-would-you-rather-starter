@@ -23,7 +23,6 @@ class PoolList extends Component {
 
 function mapStateToProps({ pools }, { ids }) {
   return {
-    pools,
     ids : ids.sort((a,b) => pools[b].timestamp - pools[a].timestamp),
   }
 }
