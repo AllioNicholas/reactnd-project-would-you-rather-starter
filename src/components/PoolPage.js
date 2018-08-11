@@ -24,23 +24,25 @@ class PoolPage extends Component {
     }
 
     const poolAnswered = thisPool.optionOne.votes.includes(authedUser) || thisPool.optionTwo.votes.includes(authedUser)
+    const { optionOne, optionTwo } = thisPool
 
     return (
-      <div>
-        PoolPage
+      <div className='pool-page-container'>
         <Pool id={id} />
         {poolAnswered === false && <div>
           <button
+            className='btn'
             value='optionOne'
             onClick={this.handleAnswer}
             >
-            Option one
+            {optionOne.text}
           </button>
           <button
             value='optionTwo'
             onClick={this.handleAnswer}
+            className='btn'
             >
-            Option two
+            {optionTwo.text}
           </button>
         </div>}
       </div>
