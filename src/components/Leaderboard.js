@@ -30,6 +30,8 @@ class Leaderboard extends Component {
                   />
                   <h3>{user.name}</h3>
                   <p>Score: {score}</p>
+                  <p>Pool asked: {questions}</p>
+                  <p>Pool answered: {answers}</p>
                 </div>
               </li>
             )
