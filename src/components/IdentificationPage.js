@@ -16,14 +16,16 @@ class IdentificationPage extends Component {
     const { users } = this.props
 
     return (
-      <div className='container'>
-        <ul>
-          {Object.keys(users).map((u) => (
-              <li key={users[u].id} onClick={() => this.setAuthedUser(users[u].id)}>
-                {users[u].name}
-              </li>
-          ))}
-        </ul>
+      <div className='identification-container'>
+        <h3 className='identification-title'>Select a user</h3>
+        <div className="user-changer">
+          <select className='user-selector' onChange={(event) => this.setAuthedUser(event.target.value)}>
+            <option value="" defaultValue>Select user</option>
+            {Object.keys(users).map((u) => (
+                <option key={users[u].id} value={users[u].id}>{users[u].name}</option>
+            ))}
+          </select>
+        </div>
       </div>
     )
   }
