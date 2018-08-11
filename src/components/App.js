@@ -30,7 +30,7 @@ class App extends Component {
           ? <div className='container'>
               <NavBar />
               <div>
-                <p>{authedUser}</p>
+                <p>Logged as <span className='authed-user'>{authedUser}</span></p>
                 <button className='btn' onClick={this.handleLogout}>Logout</button>
               </div>
               <div>
