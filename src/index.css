@@ -23,10 +23,11 @@ a {
 
 .textarea {
   border-radius: 4px;
-  border: 1px solid #dad7d7;
   padding: 10px;
   font-size: 15px;
   height: 100px;
+  background-color: hsl(0, 0%, 100%);
+  border: 1px solid #DDDDDD;
 }
 
 .nav ul {
@@ -105,6 +106,29 @@ li {
   width: 66%
 }
 
+.identification-container {
+  background-color: #DDDDDD;
+  border-radius: 5px;
+  border: 1px solid #777777;
+  width: 350px;
+  height: 360px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  margin: auto;
+  text-align: center;
+}
+
+.identification-title {
+  font-family: ".SFNSDisplay-Heavy", "SFProDisplay-Heavy", "SFUIDisplay-Heavy", ".SFUIDisplay-Heavy", sans-serif;
+  color: black;
+  font-size: 50px;
+  letter-spacing: 0px;
+  line-height: 1.2;
+}
+
 .option {
   position: relative;
   display: block;
@@ -113,6 +137,7 @@ li {
 
 .option-choosen {
   color: green;
+  font-weight: bold;
 }
 
 .option-resp {
@@ -122,4 +147,20 @@ li {
 
 .center {
   text-align: center;
+}
+
+.user-changer {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0);
+  overflow: hidden;
+  margin: auto;
+  position: relative;
+}
+
+.user-selector {
+  background-color: hsl(0, 0%, 100%);
+  border-radius: 4px;
+  border: 1px solid #DDDDDD;
+  width: 300px;
+  height: 30px;
 }
